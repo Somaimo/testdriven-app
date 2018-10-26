@@ -6,6 +6,7 @@ class BaseConfig:
     """Base Configuration"""
     TESTING = False
     SQLALECHMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = 'my_precious'
 
 class DevelopmentConfig(BaseConfig):
     """Development configuration"""
