@@ -3,10 +3,11 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import sys
+
 
 # instantiate the db
 db = SQLAlchemy()
+
 
 def create_app(script_info=None):
 
