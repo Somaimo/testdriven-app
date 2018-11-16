@@ -1,0 +1,27 @@
+# base image based on alpine (this is very insecure)
+FROM python:3.7-alpine
+
+# Install dependencies (especially for psycopg)
+RUN apk update && \
+    apk add --virtual build-deps gcc python-dev musl-dev && \
+    apk add postgresql-dev && \
+    apk add netcat-openbsd
+
+# set working directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# add and install requirements
+COPY ./Pipfile /usr/src/app/Pipfile
+COPY ./Pipfile.lock /usr/src/app/Pipfile.lock
+RUN pip install pipenv
+RUN pipenv install --deploy --system
+
+COPY ./entrypoint-prod.sh /usr/src/app/entrypoint-prod.sh
+
+# add app
+COPY . /usr/src/app
+RUN chmod 777 /usr/src/app/entrypoint-prod.sh
+
+# run server
+CMD ["sh","/usr/src/app/entrypoint-prod.sh"]
