@@ -18,6 +18,16 @@ services:
     depends_on:
       - users-db
   
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - users
+
   users-db:
     build:
       context: ./services/users/project/db
