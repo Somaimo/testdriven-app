@@ -63,3 +63,9 @@ Run tests
 docker-compose -f docker-compose-prod.yml run users python manage.py test
 ```
 Check the ip of the ec2 instance `docker-machine ip testdriven-prod`.
+
+## Common commands
+Access to the database via psql:
+```bash
+docker-compose -f docker-compose-dev.yml exec users-db psql -U postgres
+```
