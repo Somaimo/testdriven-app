@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/marc/.local/share/virtualenvs/users-0Gffycxq/bin/python",
+    "python.pythonPath": "/home/marc/.local/share/virtualenvs/testdriven-app-JFC0YjSe/bin/python",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true
