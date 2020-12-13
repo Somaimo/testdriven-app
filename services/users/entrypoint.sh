@@ -13,4 +13,6 @@ echo "Populating DB"
 python manage.py recreate-db
 python manage.py seed-db
 
+echo "Database populated."
+
 python manage.py run -h 0.0.0.0
